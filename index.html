@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f5f59">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Plataforma psicoeducativa de regulação autonômica para momentos de alta ativação, ansiedade, congelamento ou desconexão.">
+  <meta name="robots" content="index,follow">
+  <title>Regulação Polivagal | Recursos para momentos de crise</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header" aria-label="Cabeçalho">
+    <div class="brand-wrap">
+      <div class="brand-mark" aria-hidden="true">R</div>
+      <div>
+        <p class="brand-name">Regulação Polivagal</p>
+        <p class="brand-sub">recursos breves para recuperar margem de escolha</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" id="textSizeBtn" type="button" aria-label="Aumentar tamanho do texto">A+</button>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema">◐</button>
+    </div>
+  </header>
+
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <button type="button" data-route="agora" class="nav-item active" aria-current="page"><span>Agora</span></button>
+    <button type="button" data-route="praticas" class="nav-item"><span>Práticas</span></button>
+    <button type="button" data-route="mapa" class="nav-item"><span>Meu mapa</span></button>
+    <button type="button" data-route="entender" class="nav-item"><span>Entender</span></button>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="view active" id="view-agora" data-view="agora" aria-labelledby="agora-title">
+      <div class="hero shell">
+        <p class="eyebrow">MODO AGORA</p>
+        <h1 id="agora-title">Seu corpo não precisa resolver tudo de uma vez.</h1>
+        <p class="lead">Escolha o estado que mais se aproxima do que acontece neste momento. Você receberá uma prática curta, sem exigir que se acalme à força.</p>
+      </div>
+
+      <div class="shell state-shell" aria-labelledby="state-title">
+        <div class="section-head">
+          <p class="kicker">1 · Localize</p>
+          <h2 id="state-title">Como seu sistema parece estar agora?</h2>
+          <p>Não precisa ser exato. Marque a opção mais próxima.</p>
+        </div>
+
+        <div class="state-grid" role="radiogroup" aria-label="Estado atual">
+          <button class="state-card hot" type="button" role="radio" aria-checked="false" data-state="mobilizado">
+            <span class="state-icon" aria-hidden="true">↑</span>
+            <strong>Muito acelerado</strong>
+            <span>ansiedade, urgência, irritação, tensão, pensamentos rápidos</span>
+          </button>
+          <button class="state-card low" type="button" role="radio" aria-checked="false" data-state="desligado">
+            <span class="state-icon" aria-hidden="true">↓</span>
+            <strong>Muito desligado</strong>
+            <span>entorpecimento, cansaço intenso, vazio, distanciamento, pouca energia</span>
+          </button>
+          <button class="state-card steady" type="button" role="radio" aria-checked="false" data-state="estavel">
+            <span class="state-icon" aria-hidden="true">≈</span>
+            <strong>Tenho alguma estabilidade</strong>
+            <span>ainda há desconforto, mas consigo observar, escolher e me orientar</span>
+          </button>
+        </div>
+
+        <div class="intensity-wrap">
+          <label for="intensity">Intensidade agora: <strong id="intensityValue">5</strong>/10</label>
+          <input id="intensity" type="range" min="0" max="10" step="1" value="5">
+        </div>
+      </div>
+
+      <div class="shell recommendation hidden" id="recommendation" aria-live="polite">
+        <div class="section-head">
+          <p class="kicker">2 · Faça menos, melhor</p>
+          <h2 id="recommendationTitle">Prática sugerida</h2>
+          <p id="recommendationReason"></p>
+        </div>
+        <div class="practice-preview" id="recommendationCard"></div>
+        <button type="button" class="btn primary wide" id="startRecommended">Começar prática guiada</button>
+        <button type="button" class="btn subtle wide" id="chooseOther">Escolher outra prática</button>
+      </div>
+
+      <div class="shell crisis-card" id="supportNow">
+        <h2>Se você não está conseguindo se manter seguro</h2>
+        <p>Use a plataforma apenas como apoio complementar. Vá para perto de uma pessoa adulta de confiança e procure atendimento presencial de urgência ou emergência na sua região.</p>
+        <button class="btn danger" type="button" id="openSupportPlan">Abrir meu plano de apoio</button>
+      </div>
+    </section>
+
+    <section class="view" id="view-praticas" data-view="praticas" aria-labelledby="praticas-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="kicker">BIBLIOTECA</p>
+          <h1 id="praticas-title">Práticas breves</h1>
+          <p>Escolha pelo que seu corpo tolera agora. Nenhuma prática precisa ser concluída se aumentar desconforto.</p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filtrar práticas">
+          <button class="chip active" type="button" data-filter="all">Todas</button>
+          <button class="chip" type="button" data-filter="mobilizado">Para aceleração</button>
+          <button class="chip" type="button" data-filter="desligado">Para desligamento</button>
+          <button class="chip" type="button" data-filter="estavel">Para estabilizar</button>
+        </div>
+        <div class="practice-grid" id="practiceGrid"></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-mapa" data-view="mapa" aria-labelledby="mapa-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="kicker">PERSONALIZAÇÃO LOCAL</p>
+          <h1 id="mapa-title">Meu mapa de regulação</h1>
+          <p>Estas informações ficam somente neste navegador. Não são enviadas para servidor.</p>
+        </div>
+
+        <form id="personalPlanForm" class="form-grid" autocomplete="off">
+          <div class="field">
+            <label for="anchorPhrase">Frase que me orienta</label>
+            <input id="anchorPhrase" name="anchorPhrase" maxlength="140" placeholder="Ex.: Posso reduzir o ritmo antes de decidir.">
+          </div>
+          <div class="field">
+            <label for="supportPerson">Pessoa de confiança</label>
+            <input id="supportPerson" name="supportPerson" maxlength="80" placeholder="Nome ou vínculo">
+          </div>
+          <div class="field">
+            <label for="supportContact">Contato dessa pessoa</label>
+            <input id="supportContact" name="supportContact" inputmode="tel" maxlength="30" placeholder="Telefone ou outro contato">
+          </div>
+          <div class="field">
+            <label for="safePlace">Lugar em que costumo me reorganizar</label>
+            <input id="safePlace" name="safePlace" maxlength="120" placeholder="Ex.: sala silenciosa, varanda, perto de alguém conhecido">
+          </div>
+          <div class="field full">
+            <label for="helpsMe">O que costuma ajudar meu corpo</label>
+            <textarea id="helpsMe" name="helpsMe" maxlength="500" placeholder="Sinais, rotinas, sons, movimentos ou pessoas que costumam ajudar."></textarea>
+          </div>
+          <div class="field full">
+            <label for="avoidNow">O que é melhor reduzir durante uma crise</label>
+            <textarea id="avoidNow" name="avoidNow" maxlength="500" placeholder="Ex.: discussões, excesso de mensagens, decisões importantes, ambientes muito estimulantes."></textarea>
+          </div>
+          <div class="form-actions full">
+            <button class="btn primary" type="submit">Salvar neste dispositivo</button>
+            <button class="btn subtle" type="button" id="clearPersonalPlan">Apagar meus dados locais</button>
+          </div>
+          <p class="privacy-note full">Evite registrar dados que você não gostaria de manter neste aparelho. Se o dispositivo for compartilhado, prefira não salvar contatos ou informações pessoais.</p>
+        </form>
+      </div>
+
+      <div class="shell log-shell">
+        <div class="section-head">
+          <p class="kicker">HISTÓRICO LOCAL</p>
+          <h2>Como as práticas estão funcionando para mim?</h2>
+          <p>Registros breves ajudam a perceber padrões sem transformar a experiência em uma prova de desempenho.</p>
+        </div>
+        <div id="logSummary" class="summary-grid"></div>
+        <div id="logList" class="log-list"></div>
+        <div class="form-actions">
+          <button class="btn subtle" type="button" id="exportLog">Exportar registros (.json)</button>
+          <button class="btn subtle" type="button" id="clearLog">Apagar histórico</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="view-entender" data-view="entender" aria-labelledby="entender-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="kicker">PSICOEDUCAÇÃO</p>
+          <h1 id="entender-title">Entender sem transformar o modelo em regra</h1>
+          <p>A Teoria Polivagal é uma forma de organizar experiências de segurança, mobilização e desligamento. Alguns de seus detalhes neuroanatômicos e métricos permanecem em debate científico.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="edu-card">
+            <span class="edu-label">Segurança e conexão</span>
+            <h2>Quando há margem para contato e escolha</h2>
+            <p>Você tende a conseguir observar melhor o ambiente, conversar, pensar com mais flexibilidade e escolher respostas com menos urgência.</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-label">Mobilização</span>
+            <h2>Quando o corpo aumenta prontidão</h2>
+            <p>Aceleração, tensão, vigilância e urgência podem aparecer como respostas de proteção. O objetivo não é “eliminar” essas respostas, mas ampliar opções.</p>
+          </article>
+          <article class="edu-card">
+            <span class="edu-label">Desligamento</span>
+            <h2>Quando o sistema reduz energia e contato</h2>
+            <p>Algumas pessoas descrevem peso, distanciamento, vazio ou dificuldade de iniciar ações. Estratégias suaves de orientação, movimento e conexão podem ser mais toleráveis do que exigir relaxamento.</p>
+          </article>
+        </div>
+
+        <div class="evidence-box">
+          <h2>O que esta plataforma afirma — e o que não afirma</h2>
+          <ul>
+            <li>Respiração lenta pode alterar medidas cardiorrespiratórias e autonômicas, incluindo variabilidade da frequência cardíaca.</li>
+            <li>Práticas de orientação sensorial, ritmo, movimento leve e apoio social podem funcionar como recursos de regulação para algumas pessoas.</li>
+            <li>A plataforma não diagnostica estados vagais, não mede “tônus vagal” e não promete ativar uma via neural específica.</li>
+            <li>Se uma prática piorar tontura, falta de ar, dor, pânico ou desconforto, interrompa e retorne à respiração espontânea.</li>
+          </ul>
+        </div>
+
+        <details class="references">
+          <summary>Referências e base científica</summary>
+          <ol>
+            <li>Laborde S. et al. Effects of voluntary slow breathing on heart rate and heart rate variability: systematic review and meta-analysis. Neuroscience & Biobehavioral Reviews, 2022.</li>
+            <li>Zaccaro A. et al. How Breath-Control Can Change Your Life: systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience, 2018.</li>
+            <li>Russo M.A. et al. The physiological effects of slow breathing in the healthy human. Breathe, 2017.</li>
+            <li>Revisões recentes sobre Teoria Polivagal discutem aplicações clínicas, pontos fortes e limitações metodológicas e neuroanatômicas.</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="practiceDialog" class="practice-dialog" aria-labelledby="dialogTitle">
+    <form method="dialog" class="dialog-close-row">
+      <button class="icon-btn" value="cancel" aria-label="Fechar prática">×</button>
+    </form>
+    <div class="dialog-body">
+      <p class="kicker" id="dialogCategory">PRÁTICA GUIADA</p>
+      <h2 id="dialogTitle">Prática</h2>
+      <p id="dialogIntro" class="dialog-intro"></p>
+      <div class="guide-visual" id="guideVisual" aria-hidden="true"></div>
+      <p class="guide-step" id="guideStep" aria-live="polite"></p>
+      <div class="timer" id="timer" aria-live="polite">00:00</div>
+      <div class="dialog-actions">
+        <button class="btn primary" type="button" id="practiceStartPause">Iniciar</button>
+        <button class="btn subtle" type="button" id="practiceReset">Reiniciar</button>
+        <button class="btn subtle" type="button" id="voiceToggle" aria-pressed="false">Voz: desligada</button>
+      </div>
+      <p class="safety-note" id="practiceSafety">Pare se a prática aumentar seu desconforto. Você pode apenas olhar ao redor e respirar normalmente.</p>
+      <div class="after-check hidden" id="afterCheck">
+        <label for="afterIntensity">Como está a intensidade agora? <strong id="afterIntensityValue">5</strong>/10</label>
+        <input id="afterIntensity" type="range" min="0" max="10" value="5">
+        <div class="after-actions">
+          <button class="btn primary" type="button" id="savePracticeResult">Salvar resultado</button>
+          <button class="btn subtle" type="button" id="repeatPractice">Repetir</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="supportDialog" class="support-dialog" aria-labelledby="supportTitle">
+    <form method="dialog" class="dialog-close-row">
+      <button class="icon-btn" value="cancel" aria-label="Fechar plano de apoio">×</button>
+    </form>
+    <div class="dialog-body">
+      <p class="kicker">PLANO DE APOIO</p>
+      <h2 id="supportTitle">Reduza decisões. Aumente presença humana.</h2>
+      <div id="supportPlanContent" class="support-steps"></div>
+      <p class="safety-note">Esta ferramenta não substitui atendimento profissional. Em risco imediato à sua segurança, procure uma pessoa adulta de confiança e atendimento presencial de urgência ou emergência.</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <p>Material psicoeducativo · uso complementar ao acompanhamento profissional</p>
+    <p><button type="button" class="link-btn" id="installBtn" hidden>Instalar no dispositivo</button></p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
