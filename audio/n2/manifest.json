@@ -1,0 +1,390 @@
+{
+  "version": "n2-20260825",
+  "voice": "pt-BR-AntonioNeural",
+  "profile": "Padrão Sonoro Clínico Richelmy Murta — Sono em Dia / Ampulheta N2",
+  "practices": {
+    "stop": {
+      "title": "STOP — não agir no automático",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Pare. Não envie, responda ou decida ainda.",
+          "url": "./audio/n2/stop-01.mp3?v=n2-20260825",
+          "duration_seconds": 5.6
+        },
+        {
+          "index": 1,
+          "text": "Perceba os pontos de apoio do corpo.",
+          "url": "./audio/n2/stop-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 2,
+          "text": "Observe: o que sinto, penso e quero fazer?",
+          "url": "./audio/n2/stop-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.8
+        },
+        {
+          "index": 3,
+          "text": "Escolha só o próximo passo seguro e reversível.",
+          "url": "./audio/n2/stop-04.mp3?v=n2-20260825",
+          "duration_seconds": 4.7
+        }
+      ]
+    },
+    "adiar": {
+      "title": "Adiar decisão importante",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Diga: “Posso reavaliar isso depois.”",
+          "url": "./audio/n2/adiar-01.mp3?v=n2-20260825",
+          "duration_seconds": 4.3
+        },
+        {
+          "index": 1,
+          "text": "Liste o que não precisa ser decidido agora.",
+          "url": "./audio/n2/adiar-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 2,
+          "text": "Escolha uma ação neutra e reversível.",
+          "url": "./audio/n2/adiar-03.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 3,
+          "text": "Defina um momento posterior para reavaliar.",
+          "url": "./audio/n2/adiar-04.mp3?v=n2-20260825",
+          "duration_seconds": 4.1
+        }
+      ]
+    },
+    "exalar": {
+      "title": "Expiração suavemente mais longa",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Solte os ombros e note a respiração.",
+          "url": "./audio/n2/exalar-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 1,
+          "text": "Inspire leve por 4 tempos.",
+          "url": "./audio/n2/exalar-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.6
+        },
+        {
+          "index": 2,
+          "text": "Expire confortável por 6 tempos.",
+          "url": "./audio/n2/exalar-03.mp3?v=n2-20260825",
+          "duration_seconds": 3.8
+        },
+        {
+          "index": 3,
+          "text": "Repita sem forçar.",
+          "url": "./audio/n2/exalar-04.mp3?v=n2-20260825",
+          "duration_seconds": 2.9
+        },
+        {
+          "index": 4,
+          "text": "Volte à respiração espontânea e olhe ao redor.",
+          "url": "./audio/n2/exalar-05.mp3?v=n2-20260825",
+          "duration_seconds": 4.4
+        }
+      ]
+    },
+    "orientar": {
+      "title": "Orientação pelos sentidos",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Olhe três objetos e note suas cores.",
+          "url": "./audio/n2/orientar-01.mp3?v=n2-20260825",
+          "duration_seconds": 4.2
+        },
+        {
+          "index": 1,
+          "text": "Perceba três pontos de contato do corpo.",
+          "url": "./audio/n2/orientar-02.mp3?v=n2-20260825",
+          "duration_seconds": 4.2
+        },
+        {
+          "index": 2,
+          "text": "Identifique três sons.",
+          "url": "./audio/n2/orientar-03.mp3?v=n2-20260825",
+          "duration_seconds": 3.2
+        },
+        {
+          "index": 3,
+          "text": "Observe um objeto neutro.",
+          "url": "./audio/n2/orientar-04.mp3?v=n2-20260825",
+          "duration_seconds": 3.4
+        },
+        {
+          "index": 4,
+          "text": "Pergunte: qual é o próximo passo pequeno e seguro?",
+          "url": "./audio/n2/orientar-05.mp3?v=n2-20260825",
+          "duration_seconds": 4.7
+        }
+      ]
+    },
+    "pressao": {
+      "title": "Pressão e apoio corporal",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Apoie os pés e perceba a pressão.",
+          "url": "./audio/n2/pressao-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.6
+        },
+        {
+          "index": 1,
+          "text": "Pressione levemente os pés e solte.",
+          "url": "./audio/n2/pressao-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.8
+        },
+        {
+          "index": 2,
+          "text": "Una as palmas das mãos e solte.",
+          "url": "./audio/n2/pressao-03.mp3?v=n2-20260825",
+          "duration_seconds": 3.6
+        },
+        {
+          "index": 3,
+          "text": "Perceba costas, quadris ou braços sendo sustentados.",
+          "url": "./audio/n2/pressao-04.mp3?v=n2-20260825",
+          "duration_seconds": 5.4
+        }
+      ]
+    },
+    "movimento": {
+      "title": "Movimento pequeno e orientado",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Mova lentamente os dedos.",
+          "url": "./audio/n2/movimento-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.2
+        },
+        {
+          "index": 1,
+          "text": "Pressione os pés no chão.",
+          "url": "./audio/n2/movimento-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.1
+        },
+        {
+          "index": 2,
+          "text": "Gire os ombros no confortável.",
+          "url": "./audio/n2/movimento-03.mp3?v=n2-20260825",
+          "duration_seconds": 3.3
+        },
+        {
+          "index": 3,
+          "text": "Olhe para os lados e encontre algo familiar.",
+          "url": "./audio/n2/movimento-04.mp3?v=n2-20260825",
+          "duration_seconds": 4.1
+        },
+        {
+          "index": 4,
+          "text": "Escolha uma ação simples: água, postura ou proximidade.",
+          "url": "./audio/n2/movimento-05.mp3?v=n2-20260825",
+          "duration_seconds": 5.7
+        }
+      ]
+    },
+    "temperatura": {
+      "title": "Temperatura confortável",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Segure um objeto fresco ou morno.",
+          "url": "./audio/n2/temperatura-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.8
+        },
+        {
+          "index": 1,
+          "text": "Nomeie a sensação: fresco, neutro ou morno.",
+          "url": "./audio/n2/temperatura-02.mp3?v=n2-20260825",
+          "duration_seconds": 4.9
+        },
+        {
+          "index": 2,
+          "text": "Troque de mão.",
+          "url": "./audio/n2/temperatura-03.mp3?v=n2-20260825",
+          "duration_seconds": 2.4
+        },
+        {
+          "index": 3,
+          "text": "Olhe ao redor e nomeie onde está.",
+          "url": "./audio/n2/temperatura-04.mp3?v=n2-20260825",
+          "duration_seconds": 3.5
+        }
+      ]
+    },
+    "onda": {
+      "title": "Observar a urgência como uma onda",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Onde a urgência aparece no corpo?",
+          "url": "./audio/n2/onda-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.5
+        },
+        {
+          "index": 1,
+          "text": "Dê uma nota mental de intensidade.",
+          "url": "./audio/n2/onda-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.8
+        },
+        {
+          "index": 2,
+          "text": "Perceba se cresce, diminui ou muda.",
+          "url": "./audio/n2/onda-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.1
+        },
+        {
+          "index": 3,
+          "text": "Diga: “Uma urgência não é uma ordem.”",
+          "url": "./audio/n2/onda-04.mp3?v=n2-20260825",
+          "duration_seconds": 4.1
+        },
+        {
+          "index": 4,
+          "text": "Escolha não agir por mais alguns minutos.",
+          "url": "./audio/n2/onda-05.mp3?v=n2-20260825",
+          "duration_seconds": 4.2
+        }
+      ]
+    },
+    "desfusao": {
+      "title": "Nomear sem discutir com a mente",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Note: “Minha mente está dizendo que preciso resolver isso agora.”",
+          "url": "./audio/n2/desfusao-01.mp3?v=n2-20260825",
+          "duration_seconds": 5.3
+        },
+        {
+          "index": 1,
+          "text": "Acrescente: “Estou percebendo esse pensamento.”",
+          "url": "./audio/n2/desfusao-02.mp3?v=n2-20260825",
+          "duration_seconds": 4.6
+        },
+        {
+          "index": 2,
+          "text": "Deixe a sensação existir sem virar decisão.",
+          "url": "./audio/n2/desfusao-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.4
+        },
+        {
+          "index": 3,
+          "text": "Pergunte qual ação segura escolheria sem obedecer ao pensamento.",
+          "url": "./audio/n2/desfusao-04.mp3?v=n2-20260825",
+          "duration_seconds": 5.4
+        }
+      ]
+    },
+    "valores": {
+      "title": "Próxima ação guiada por valores",
+      "steps": [
+        {
+          "index": 0,
+          "text": "O que importa proteger agora?",
+          "url": "./audio/n2/valores-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.3
+        },
+        {
+          "index": 1,
+          "text": "Escolha um valor: segurança, respeito, vínculo, saúde, trabalho ou descanso.",
+          "url": "./audio/n2/valores-02.mp3?v=n2-20260825",
+          "duration_seconds": 8.1
+        },
+        {
+          "index": 2,
+          "text": "Qual é a menor ação segura nessa direção?",
+          "url": "./audio/n2/valores-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.2
+        },
+        {
+          "index": 3,
+          "text": "Faça só a ação pequena; o restante pode esperar.",
+          "url": "./audio/n2/valores-04.mp3?v=n2-20260825",
+          "duration_seconds": 4.8
+        }
+      ]
+    },
+    "conexao": {
+      "title": "Conexão segura",
+      "steps": [
+        {
+          "index": 0,
+          "text": "Pense em alguém seguro e respeitoso.",
+          "url": "./audio/n2/conexao-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 1,
+          "text": "Formule: “Você pode ficar comigo alguns minutos?”",
+          "url": "./audio/n2/conexao-02.mp3?v=n2-20260825",
+          "duration_seconds": 4.8
+        },
+        {
+          "index": 2,
+          "text": "Escolha presença, ligação ou mensagem.",
+          "url": "./audio/n2/conexao-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.5
+        },
+        {
+          "index": 3,
+          "text": "Faça apenas o próximo contato.",
+          "url": "./audio/n2/conexao-04.mp3?v=n2-20260825",
+          "duration_seconds": 3.5
+        }
+      ]
+    },
+    "sabia": {
+      "title": "Mente sábia: emoção + fatos + valores",
+      "steps": [
+        {
+          "index": 0,
+          "text": "O que minha emoção tenta proteger?",
+          "url": "./audio/n2/sabia-01.mp3?v=n2-20260825",
+          "duration_seconds": 3.3
+        },
+        {
+          "index": 1,
+          "text": "Quais fatos observáveis tenho?",
+          "url": "./audio/n2/sabia-02.mp3?v=n2-20260825",
+          "duration_seconds": 3.4
+        },
+        {
+          "index": 2,
+          "text": "O que ainda é interpretação ou previsão?",
+          "url": "./audio/n2/sabia-03.mp3?v=n2-20260825",
+          "duration_seconds": 4.1
+        },
+        {
+          "index": 3,
+          "text": "O que quero proteger na forma como ajo?",
+          "url": "./audio/n2/sabia-04.mp3?v=n2-20260825",
+          "duration_seconds": 3.9
+        },
+        {
+          "index": 4,
+          "text": "Escolha a resposta mais simples que integre isso.",
+          "url": "./audio/n2/sabia-05.mp3?v=n2-20260825",
+          "duration_seconds": 4.5
+        }
+      ]
+    }
+  },
+  "complete": {
+    "text": "Prática concluída. Observe a intensidade e sua margem de escolha agora.",
+    "url": "./audio/n2/complete.mp3?v=n2-20260825",
+    "duration_seconds": 7.0
+  }
+}
