@@ -4,7 +4,7 @@ const path=require('path');
 const root=path.resolve(__dirname,'..');
 const src=fs.readFileSync(path.join(root,'app-core.js'),'utf8');
 const start=src.indexOf('const P=[');
-const marker='].map(x=>({id:x[0]');
+const marker='].map(x=>({id:x[0]';
 const end=src.indexOf(marker,start);
 if(start<0||end<0)throw new Error('Bloco de práticas não localizado.');
 const arraySrc=src.slice(start+'const P='.length,end+1);
