@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-08-25",
+  "reason": "Congelamento anterior à migração de SpeechSynthesis para Sono em Dia / Ampulheta N2",
+  "source": {
+    "app-core.js": "3acf2ccc0086b4abed91d7a40af46af198ffd4ac",
+    "app.js": "981eb79c446f9d82a980588665bf6828790edbe8",
+    "index.html": "3d836d3a33b7400ac30e6a4cd42ee7415647d25f"
+  },
+  "legacy_voice": "SpeechSynthesisUtterance pt-BR, rate 0.88, voz escolhida pelo dispositivo",
+  "target": "MP3 pré-gerado pt-BR-AntonioNeural, perfil Sono em Dia / Ampulheta N2"
+}
