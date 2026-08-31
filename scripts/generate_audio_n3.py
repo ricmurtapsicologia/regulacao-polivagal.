@@ -47,8 +47,9 @@ def units(text):
  return out
 def prosody(text):
  i=intent(text);rate=-9+{'explain':0,'question':1,'instruction':-3,'reflective':-3,'emphasis':1}[i];pitch=-2+{'explain':0,'question':2,'instruction':-1,'reflective':-1,'emphasis':1}[i]
- rate+=stable(text,-1,1,'rate');pitch+=stable(text,-1,1,'pitch');ranges={'explain':(700,1100),'question':(1000,1600),'instruction':(1600,3000),'reflective':(1300,2400),'emphasis':(800,1200)};lo,hi=ranges[i]
- return i,f'{max(-14,min(2,rate)):+d}%',f'{max(-5,min(4,pitch)):+d}Hz',stable(text,lo,hi,'pause')
+ rate+=stable(text,-1,1,'rate');pitch+=stable(text,-1,1,'pitch')
+ ranges={'explain':(700,1100),'question':(1000,1600),'instruction':(1600,3000),'reflective':(1300,2400),'emphasis':(800,1200)}
+ lo,hi=ranges[i];return i,f'{max(-14,min(2,rate)):+d}%',f'{max(-5,min(4,pitch)):+d}Hz',stable(text,lo,hi,'pause')
 async def synth(text,rate,pitch,path,sem):
  async with sem:
   for attempt in range(1,4):
@@ -60,7 +61,7 @@ async def synth(text,rate,pitch,path,sem):
 async def render(key,text,sem):
  turns=units(text);work=TMP/key;work.mkdir(parents=True,exist_ok=True);tasks=[];seq=[];intents=[]
  for i,turn in enumerate(turns):
-  it,rate,pitch,pause=prosody(turn);part=work/f'{i:03d}.mp3';seq.append((part,0 if i==len(turns)-1 else pause));tasks.append(synth(turn,rate,pitch,part,sem));intents.append(it)
+  it,rate,pitch,pause=prosody(turn);part=work/f'{i:03d}.mp3';seq.append((part,pause));tasks.append(synth(turn,rate,pitch,part,sem));intents.append(it)
  await asyncio.gather(*tasks);a=AudioSegment.silent(duration=180)
  for part,pause in seq:
   a+=AudioSegment.from_file(part,format='mp3')
@@ -83,6 +84,6 @@ async def main():
  complete=norm(data.get('complete','Prática concluída. Observe a intensidade e sua margem de escolha agora.'));seconds,intents,nturns=await render('complete',complete,sem)
  manifest['complete']={'text':complete,'url':f'./audio/n3/complete.mp3?v={VERSION}','duration_seconds':seconds,'intents':intents,'turns':nturns}
  (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- (OUT/'audio-spec.json').write_text(json.dumps({'version':VERSION,'voice':VOICE,'profile':'N3-C experiential','pronunciation_dictionary':True,'ambient_audio':False,'pause_policy':'linguistic + experiential by semantic intent','target_dbfs':TARGET,'peak_ceiling_dbfs':-1.2,'format':'MP3 128 kbps, mono, 44.1 kHz','practice_count':12,'step_audio_count':total,'completion_audio_count':1},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (OUT/'audio-spec.json').write_text(json.dumps({'version':VERSION,'voice':VOICE,'profile':'N3-C experiential','pronunciation_dictionary':True,'ambient_audio':False,'pause_policy':'linguistic + experiential by semantic intent, including terminal execution pause','target_dbfs':TARGET,'peak_ceiling_dbfs':-1.2,'format':'MP3 128 kbps, mono, 44.1 kHz','practice_count':12,'step_audio_count':total,'completion_audio_count':1},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  shutil.rmtree(TMP,ignore_errors=True);print(f'Concluído: {total} etapas + conclusão em N3 experiencial.')
 if __name__=='__main__':asyncio.run(main())
