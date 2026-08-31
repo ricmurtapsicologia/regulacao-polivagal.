@@ -3,6 +3,7 @@
   "voice": "pt-BR-AntonioNeural",
   "profile": "N3-C experiential — Regulação Polivagal",
   "compatibility_alias": "RC_AUDIO_N2 -> RC_AUDIO_N3",
+  "pronunciation_dictionary": true,
   "practices": {
     "stop": {
       "title": "STOP — não agir no automático",
@@ -11,7 +12,7 @@
           "index": 0,
           "text": "Pare. Não envie, responda ou decida ainda.",
           "url": "./audio/n3/stop-01.mp3?v=n3-20260831",
-          "duration_seconds": 6.8,
+          "duration_seconds": 7.7,
           "intents": [
             "explain"
           ],
@@ -21,7 +22,7 @@
           "index": 1,
           "text": "Perceba os pontos de apoio do corpo.",
           "url": "./audio/n3/stop-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.1,
+          "duration_seconds": 6.7,
           "intents": [
             "instruction"
           ],
@@ -31,7 +32,7 @@
           "index": 2,
           "text": "Observe: o que sinto, penso e quero fazer?",
           "url": "./audio/n3/stop-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.8,
+          "duration_seconds": 6.2,
           "intents": [
             "question"
           ],
@@ -41,7 +42,7 @@
           "index": 3,
           "text": "Escolha só o próximo passo seguro e reversível.",
           "url": "./audio/n3/stop-04.mp3?v=n3-20260831",
-          "duration_seconds": 5.0,
+          "duration_seconds": 6.8,
           "intents": [
             "instruction"
           ],
@@ -56,7 +57,7 @@
           "index": 0,
           "text": "Diga: “Posso reavaliar isso depois.”",
           "url": "./audio/n3/adiar-01.mp3?v=n3-20260831",
-          "duration_seconds": 4.3,
+          "duration_seconds": 5.1,
           "intents": [
             "explain"
           ],
@@ -66,7 +67,7 @@
           "index": 1,
           "text": "Liste o que não precisa ser decidido agora.",
           "url": "./audio/n3/adiar-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.1,
+          "duration_seconds": 4.9,
           "intents": [
             "explain"
           ],
@@ -76,7 +77,7 @@
           "index": 2,
           "text": "Escolha uma ação neutra e reversível.",
           "url": "./audio/n3/adiar-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.1,
+          "duration_seconds": 5.8,
           "intents": [
             "instruction"
           ],
@@ -86,7 +87,7 @@
           "index": 3,
           "text": "Defina um momento posterior para reavaliar.",
           "url": "./audio/n3/adiar-04.mp3?v=n3-20260831",
-          "duration_seconds": 4.3,
+          "duration_seconds": 5.3,
           "intents": [
             "explain"
           ],
@@ -101,7 +102,7 @@
           "index": 0,
           "text": "Solte os ombros e note a respiração.",
           "url": "./audio/n3/exalar-01.mp3?v=n3-20260831",
-          "duration_seconds": 4.2,
+          "duration_seconds": 7.1,
           "intents": [
             "instruction"
           ],
@@ -111,7 +112,7 @@
           "index": 1,
           "text": "Inspire leve por 4 tempos.",
           "url": "./audio/n3/exalar-02.mp3?v=n3-20260831",
-          "duration_seconds": 3.9,
+          "duration_seconds": 6.2,
           "intents": [
             "instruction"
           ],
@@ -121,7 +122,7 @@
           "index": 2,
           "text": "Expire confortável por 6 tempos.",
           "url": "./audio/n3/exalar-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.0,
+          "duration_seconds": 5.7,
           "intents": [
             "instruction"
           ],
@@ -131,7 +132,7 @@
           "index": 3,
           "text": "Repita sem forçar.",
           "url": "./audio/n3/exalar-04.mp3?v=n3-20260831",
-          "duration_seconds": 3.1,
+          "duration_seconds": 5.1,
           "intents": [
             "instruction"
           ],
@@ -141,7 +142,7 @@
           "index": 4,
           "text": "Volte à respiração espontânea e olhe ao redor.",
           "url": "./audio/n3/exalar-05.mp3?v=n3-20260831",
-          "duration_seconds": 4.6,
+          "duration_seconds": 6.8,
           "intents": [
             "instruction"
           ],
@@ -156,7 +157,7 @@
           "index": 0,
           "text": "Olhe três objetos e note suas cores.",
           "url": "./audio/n3/orientar-01.mp3?v=n3-20260831",
-          "duration_seconds": 4.4,
+          "duration_seconds": 6.8,
           "intents": [
             "instruction"
           ],
@@ -166,7 +167,7 @@
           "index": 1,
           "text": "Perceba três pontos de contato do corpo.",
           "url": "./audio/n3/orientar-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.5,
+          "duration_seconds": 6.2,
           "intents": [
             "instruction"
           ],
@@ -176,7 +177,7 @@
           "index": 2,
           "text": "Identifique três sons.",
           "url": "./audio/n3/orientar-03.mp3?v=n3-20260831",
-          "duration_seconds": 3.4,
+          "duration_seconds": 5.3,
           "intents": [
             "instruction"
           ],
@@ -186,7 +187,7 @@
           "index": 3,
           "text": "Observe um objeto neutro.",
           "url": "./audio/n3/orientar-04.mp3?v=n3-20260831",
-          "duration_seconds": 3.6,
+          "duration_seconds": 5.4,
           "intents": [
             "instruction"
           ],
@@ -196,7 +197,7 @@
           "index": 4,
           "text": "Pergunte: qual é o próximo passo pequeno e seguro?",
           "url": "./audio/n3/orientar-05.mp3?v=n3-20260831",
-          "duration_seconds": 4.9,
+          "duration_seconds": 6.4,
           "intents": [
             "question"
           ],
@@ -211,7 +212,7 @@
           "index": 0,
           "text": "Apoie os pés e perceba a pressão.",
           "url": "./audio/n3/pressao-01.mp3?v=n3-20260831",
-          "duration_seconds": 3.8,
+          "duration_seconds": 6.3,
           "intents": [
             "instruction"
           ],
@@ -221,7 +222,7 @@
           "index": 1,
           "text": "Pressione levemente os pés e solte.",
           "url": "./audio/n3/pressao-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.1,
+          "duration_seconds": 6.6,
           "intents": [
             "instruction"
           ],
@@ -231,7 +232,7 @@
           "index": 2,
           "text": "Una as palmas das mãos e solte.",
           "url": "./audio/n3/pressao-03.mp3?v=n3-20260831",
-          "duration_seconds": 3.8,
+          "duration_seconds": 6.0,
           "intents": [
             "instruction"
           ],
@@ -241,7 +242,7 @@
           "index": 3,
           "text": "Perceba costas, quadris ou braços sendo sustentados.",
           "url": "./audio/n3/pressao-04.mp3?v=n3-20260831",
-          "duration_seconds": 5.7,
+          "duration_seconds": 8.2,
           "intents": [
             "instruction"
           ],
@@ -256,7 +257,7 @@
           "index": 0,
           "text": "Mova lentamente os dedos.",
           "url": "./audio/n3/movimento-01.mp3?v=n3-20260831",
-          "duration_seconds": 3.4,
+          "duration_seconds": 5.8,
           "intents": [
             "instruction"
           ],
@@ -266,7 +267,7 @@
           "index": 1,
           "text": "Pressione os pés no chão.",
           "url": "./audio/n3/movimento-02.mp3?v=n3-20260831",
-          "duration_seconds": 3.3,
+          "duration_seconds": 5.8,
           "intents": [
             "instruction"
           ],
@@ -276,7 +277,7 @@
           "index": 2,
           "text": "Gire os ombros no confortável.",
           "url": "./audio/n3/movimento-03.mp3?v=n3-20260831",
-          "duration_seconds": 3.6,
+          "duration_seconds": 5.4,
           "intents": [
             "instruction"
           ],
@@ -286,7 +287,7 @@
           "index": 3,
           "text": "Olhe para os lados e encontre algo familiar.",
           "url": "./audio/n3/movimento-04.mp3?v=n3-20260831",
-          "duration_seconds": 4.3,
+          "duration_seconds": 6.8,
           "intents": [
             "instruction"
           ],
@@ -296,7 +297,7 @@
           "index": 4,
           "text": "Escolha uma ação simples: água, postura ou proximidade.",
           "url": "./audio/n3/movimento-05.mp3?v=n3-20260831",
-          "duration_seconds": 6.0,
+          "duration_seconds": 8.3,
           "intents": [
             "instruction"
           ],
@@ -311,7 +312,7 @@
           "index": 0,
           "text": "Segure um objeto fresco ou morno.",
           "url": "./audio/n3/temperatura-01.mp3?v=n3-20260831",
-          "duration_seconds": 4.0,
+          "duration_seconds": 6.3,
           "intents": [
             "instruction"
           ],
@@ -321,7 +322,7 @@
           "index": 1,
           "text": "Nomeie a sensação: fresco, neutro ou morno.",
           "url": "./audio/n3/temperatura-02.mp3?v=n3-20260831",
-          "duration_seconds": 5.1,
+          "duration_seconds": 8.0,
           "intents": [
             "instruction"
           ],
@@ -331,7 +332,7 @@
           "index": 2,
           "text": "Troque de mão.",
           "url": "./audio/n3/temperatura-03.mp3?v=n3-20260831",
-          "duration_seconds": 2.5,
+          "duration_seconds": 3.2,
           "intents": [
             "explain"
           ],
@@ -341,7 +342,7 @@
           "index": 3,
           "text": "Olhe ao redor e nomeie onde está.",
           "url": "./audio/n3/temperatura-04.mp3?v=n3-20260831",
-          "duration_seconds": 3.8,
+          "duration_seconds": 6.5,
           "intents": [
             "instruction"
           ],
@@ -356,7 +357,7 @@
           "index": 0,
           "text": "Onde a urgência aparece no corpo?",
           "url": "./audio/n3/onda-01.mp3?v=n3-20260831",
-          "duration_seconds": 3.6,
+          "duration_seconds": 4.9,
           "intents": [
             "question"
           ],
@@ -366,7 +367,7 @@
           "index": 1,
           "text": "Dê uma nota mental de intensidade.",
           "url": "./audio/n3/onda-02.mp3?v=n3-20260831",
-          "duration_seconds": 3.9,
+          "duration_seconds": 4.7,
           "intents": [
             "explain"
           ],
@@ -376,7 +377,7 @@
           "index": 2,
           "text": "Perceba se cresce, diminui ou muda.",
           "url": "./audio/n3/onda-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.4,
+          "duration_seconds": 6.8,
           "intents": [
             "instruction"
           ],
@@ -386,7 +387,7 @@
           "index": 3,
           "text": "Diga: “Uma urgência não é uma ordem.”",
           "url": "./audio/n3/onda-04.mp3?v=n3-20260831",
-          "duration_seconds": 4.2,
+          "duration_seconds": 5.3,
           "intents": [
             "explain"
           ],
@@ -396,7 +397,7 @@
           "index": 4,
           "text": "Escolha não agir por mais alguns minutos.",
           "url": "./audio/n3/onda-05.mp3?v=n3-20260831",
-          "duration_seconds": 4.5,
+          "duration_seconds": 6.1,
           "intents": [
             "instruction"
           ],
@@ -411,7 +412,7 @@
           "index": 0,
           "text": "Note: “Minha mente está dizendo que preciso resolver isso agora.”",
           "url": "./audio/n3/desfusao-01.mp3?v=n3-20260831",
-          "duration_seconds": 5.6,
+          "duration_seconds": 8.5,
           "intents": [
             "instruction"
           ],
@@ -421,7 +422,7 @@
           "index": 1,
           "text": "Acrescente: “Estou percebendo esse pensamento.”",
           "url": "./audio/n3/desfusao-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.8,
+          "duration_seconds": 5.8,
           "intents": [
             "explain"
           ],
@@ -431,7 +432,7 @@
           "index": 2,
           "text": "Deixe a sensação existir sem virar decisão.",
           "url": "./audio/n3/desfusao-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.6,
+          "duration_seconds": 7.3,
           "intents": [
             "instruction"
           ],
@@ -441,7 +442,7 @@
           "index": 3,
           "text": "Pergunte qual ação segura escolheria sem obedecer ao pensamento.",
           "url": "./audio/n3/desfusao-04.mp3?v=n3-20260831",
-          "duration_seconds": 5.7,
+          "duration_seconds": 7.6,
           "intents": [
             "instruction"
           ],
@@ -456,7 +457,7 @@
           "index": 0,
           "text": "O que importa proteger agora?",
           "url": "./audio/n3/valores-01.mp3?v=n3-20260831",
-          "duration_seconds": 3.4,
+          "duration_seconds": 4.4,
           "intents": [
             "question"
           ],
@@ -466,7 +467,7 @@
           "index": 1,
           "text": "Escolha um valor: segurança, respeito, vínculo, saúde, trabalho ou descanso.",
           "url": "./audio/n3/valores-02.mp3?v=n3-20260831",
-          "duration_seconds": 8.6,
+          "duration_seconds": 11.1,
           "intents": [
             "instruction"
           ],
@@ -476,7 +477,7 @@
           "index": 2,
           "text": "Qual é a menor ação segura nessa direção?",
           "url": "./audio/n3/valores-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.4,
+          "duration_seconds": 6.0,
           "intents": [
             "question"
           ],
@@ -486,7 +487,7 @@
           "index": 3,
           "text": "Faça só a ação pequena; o restante pode esperar.",
           "url": "./audio/n3/valores-04.mp3?v=n3-20260831",
-          "duration_seconds": 5.1,
+          "duration_seconds": 7.8,
           "intents": [
             "instruction"
           ],
@@ -501,7 +502,7 @@
           "index": 0,
           "text": "Pense em alguém seguro e respeitoso.",
           "url": "./audio/n3/conexao-01.mp3?v=n3-20260831",
-          "duration_seconds": 4.0,
+          "duration_seconds": 6.6,
           "intents": [
             "instruction"
           ],
@@ -511,7 +512,7 @@
           "index": 1,
           "text": "Formule: “Você pode ficar comigo alguns minutos?”",
           "url": "./audio/n3/conexao-02.mp3?v=n3-20260831",
-          "duration_seconds": 4.9,
+          "duration_seconds": 6.0,
           "intents": [
             "explain"
           ],
@@ -521,7 +522,7 @@
           "index": 2,
           "text": "Escolha presença, ligação ou mensagem.",
           "url": "./audio/n3/conexao-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.8,
+          "duration_seconds": 7.0,
           "intents": [
             "instruction"
           ],
@@ -531,7 +532,7 @@
           "index": 3,
           "text": "Faça apenas o próximo contato.",
           "url": "./audio/n3/conexao-04.mp3?v=n3-20260831",
-          "duration_seconds": 3.8,
+          "duration_seconds": 5.6,
           "intents": [
             "instruction"
           ],
@@ -546,7 +547,7 @@
           "index": 0,
           "text": "O que minha emoção tenta proteger?",
           "url": "./audio/n3/sabia-01.mp3?v=n3-20260831",
-          "duration_seconds": 3.5,
+          "duration_seconds": 5.0,
           "intents": [
             "question"
           ],
@@ -556,7 +557,7 @@
           "index": 1,
           "text": "Quais fatos observáveis tenho?",
           "url": "./audio/n3/sabia-02.mp3?v=n3-20260831",
-          "duration_seconds": 3.6,
+          "duration_seconds": 4.7,
           "intents": [
             "question"
           ],
@@ -566,7 +567,7 @@
           "index": 2,
           "text": "O que ainda é interpretação ou previsão?",
           "url": "./audio/n3/sabia-03.mp3?v=n3-20260831",
-          "duration_seconds": 4.2,
+          "duration_seconds": 5.6,
           "intents": [
             "question"
           ],
@@ -576,7 +577,7 @@
           "index": 3,
           "text": "O que quero proteger na forma como ajo?",
           "url": "./audio/n3/sabia-04.mp3?v=n3-20260831",
-          "duration_seconds": 4.1,
+          "duration_seconds": 5.3,
           "intents": [
             "question"
           ],
@@ -586,7 +587,7 @@
           "index": 4,
           "text": "Escolha a resposta mais simples que integre isso.",
           "url": "./audio/n3/sabia-05.mp3?v=n3-20260831",
-          "duration_seconds": 4.8,
+          "duration_seconds": 7.2,
           "intents": [
             "instruction"
           ],
@@ -598,7 +599,7 @@
   "complete": {
     "text": "Prática concluída. Observe a intensidade e sua margem de escolha agora.",
     "url": "./audio/n3/complete.mp3?v=n3-20260831",
-    "duration_seconds": 8.4,
+    "duration_seconds": 10.0,
     "intents": [
       "explain",
       "instruction"
