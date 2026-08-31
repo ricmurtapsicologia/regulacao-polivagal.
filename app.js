@@ -17,6 +17,6 @@ if(section){
   }
 }
 const install=document.getElementById('installBtn');if(install&&install.parentElement)install.parentElement.classList.add('install-row');
-function loadCore(){const core=document.createElement('script');core.src='./app-core.js?v=2.1.0-n2';core.async=false;document.head.appendChild(core)}
-const audio=document.createElement('script');audio.src='./audio-n2.js?v=n2-20260825';audio.async=false;audio.onload=loadCore;audio.onerror=loadCore;document.head.appendChild(audio);
+function loadCore(){const core=document.createElement('script');core.src='./app-core.js?v=2.1.0-n3';core.async=false;document.head.appendChild(core)}
+const audio=document.createElement('script');audio.src='./audio-n3.js?v=n3-20260831';audio.async=false;audio.onload=loadCore;audio.onerror=loadCore;document.head.appendChild(audio);
 })();

@@ -1,0 +1,13 @@
+{
+  "version": "n3-20260831",
+  "voice": "pt-BR-AntonioNeural",
+  "profile": "N3-C experiential",
+  "ambient_audio": false,
+  "pause_policy": "linguistic + experiential by semantic intent",
+  "target_dbfs": -18.0,
+  "peak_ceiling_dbfs": -1.2,
+  "format": "MP3 128 kbps, mono, 44.1 kHz",
+  "practice_count": 12,
+  "step_audio_count": 53,
+  "completion_audio_count": 1
+}
