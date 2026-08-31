@@ -1,104 +1,16 @@
-name: Padronizar audios de regulacao N2
+name: LEGACY — Audio regulacao N2
 
+# Congelado após adoção do N3 Natural em 31/08/2026.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/export_audio_text.js'
-      - 'scripts/generate_audio_n2.py'
-      - 'audio-n2.js'
-      - '.github/workflows/generate-audio-n2.yml'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
-  contents: write
-
-concurrency:
-  group: regulacao-audio-n2
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  generate:
+  legacy-info:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Instalar dependencias
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y ffmpeg
-          python -m pip install --upgrade pip
-          pip install edge-tts pydub
-      - name: Congelar textos operacionais das 12 praticas
-        run: node scripts/export_audio_text.js /tmp/regulacao-audio.json
-      - name: Gerar MP3 N2 por etapa
-        run: python scripts/generate_audio_n2.py /tmp/regulacao-audio.json
-      - name: Substituir SpeechSynthesis pela camada MP3
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          p=Path('app-core.js')
-          s=p.read_text(encoding='utf-8')
-          s,n=re.subn(
-              r"function speak\(x\)\{.*?\}\nfunction toggle",
-              "function speak(x){if(!voice||!a)return;window.RC_AUDIO_N2?.play(a.id,si,x)}\nfunction toggle",
-              s,count=1
-          )
-          if n!=1: raise SystemExit('Falha ao substituir speak()')
-          s,n=re.subn(
-              r"function stop\(c=true\)\{.*?\}\nfunction reset",
-              "function stop(c=true){if(t)clearInterval(t);t=null;if(c)window.RC_AUDIO_N2?.stop()}\nfunction reset",
-              s,count=1
-          )
-          if n!=1: raise SystemExit('Falha ao substituir stop()')
-          pattern=r"\$\('#voiceToggle'\)\.onclick=e=>\{.*?\};\$\('#practiceDialog'\)"
-          repl="$('#voiceToggle').onclick=e=>{voice=!voice;e.currentTarget.setAttribute('aria-pressed',voice);e.currentTarget.textContent=`Áudio: ${voice?'ligado':'desligado'}`;if(!voice)window.RC_AUDIO_N2?.stop();if(voice&&a)speak($('#guideStep').textContent)};$('#practiceDialog')"
-          s,n=re.subn(pattern,repl,s,count=1)
-          if n!=1: raise SystemExit('Falha ao substituir voiceToggle')
-          if 'SpeechSynthesis' in s or 'speechSynthesis' in s:
-              raise SystemExit('Ainda existe SpeechSynthesis ativo em app-core.js')
-          p.write_text(s,encoding='utf-8')
-
-          idx=Path('index.html')
-          x=idx.read_text(encoding='utf-8')
-          x=x.replace('Voz: desligada','Áudio: desligado').replace('Voz: desligado','Áudio: desligado')
-          idx.write_text(x,encoding='utf-8')
-          PY
-      - name: Validar MP3 e integracao
-        run: |
-          python - <<'PY'
-          import json, subprocess
-          from pathlib import Path
-          m=json.loads(Path('audio/n2/manifest.json').read_text(encoding='utf-8'))
-          assert len(m['practices'])==12
-          expected=sum(len(p['steps']) for p in m['practices'].values())+1
-          files=sorted(Path('audio/n2').glob('*.mp3'))
-          assert len(files)==expected, (len(files),expected)
-          for p in files:
-              out=subprocess.check_output(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=channels,sample_rate,duration','-of','json',str(p)],text=True)
-              info=json.loads(out)['streams'][0]
-              assert int(info['channels'])==1
-              assert int(info['sample_rate'])==44100
-              assert float(info['duration'])>0
-          core=Path('app-core.js').read_text(encoding='utf-8')
-          assert 'SpeechSynthesis' not in core and 'speechSynthesis' not in core
-          assert 'RC_AUDIO_N2' in core
-          print(f'Validação concluída: 12 práticas, {expected} MP3, sem SpeechSynthesis.')
-          PY
-      - name: Commitar padronizacao
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audio/n2 app-core.js index.html
-          if git diff --cached --quiet; then
-            echo "Sem alterações"
-            exit 0
-          fi
-          git commit -m "build: migrar regulacao para audio Sono em Dia N2"
-          git pull --rebase --autostash origin main
-          git push origin HEAD:main
+      - run: |
+          echo "N2 congelado. Runtime canônico: audio/n3 + audio-n3.js."
+          echo "A pasta audio/n2 permanece apenas para rollback/comparação."
