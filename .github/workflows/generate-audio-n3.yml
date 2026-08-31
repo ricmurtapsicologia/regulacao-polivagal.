@@ -1,0 +1,82 @@
+name: Gerar audio N3 experiencial
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/export_audio_text.js'
+      - 'scripts/generate_audio_n3.py'
+      - 'audio-n3.js'
+      - 'AUDIO_N3_STANDARD.md'
+      - '.github/workflows/generate-audio-n3.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: regulacao-audio-n3
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Dependencias
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install edge-tts pydub
+      - name: Exportar textos ativos
+        run: node scripts/export_audio_text.js /tmp/regulacao-audio.json
+      - name: Gerar N3 experiencial
+        run: python scripts/generate_audio_n3.py /tmp/regulacao-audio.json
+      - name: Promover loader N3 no runtime
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.js');s=p.read_text(encoding='utf-8')
+          s=s.replace("./app-core.js?v=2.1.0-n2","./app-core.js?v=2.1.0-n3")
+          s=s.replace("./audio-n2.js?v=n2-20260825","./audio-n3.js?v=n3-20260831")
+          if './audio-n3.js?v=n3-20260831' not in s: raise SystemExit('Loader N3 não aplicado')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Smoke test N3
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          m=json.loads(Path('audio/n3/manifest.json').read_text(encoding='utf-8'))
+          assert m['version']=='n3-20260831' and len(m['practices'])==12
+          urls=[]
+          for p in m['practices'].values(): urls += [s['url'].split('?')[0] for s in p['steps']]
+          urls.append(m['complete']['url'].split('?')[0])
+          assert len(urls)>=50
+          for u in urls:
+              path=Path(u.replace('./',''));assert path.exists() and path.stat().st_size>1000,path
+              info=json.loads(subprocess.check_output(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=channels,sample_rate,duration','-of','json',str(path)],text=True))['streams'][0]
+              assert int(info['channels'])==1 and int(info['sample_rate'])==44100 and float(info['duration'])>0
+          app=Path('app.js').read_text(encoding='utf-8')
+          assert './audio-n3.js?v=n3-20260831' in app and './audio-n2.js?' not in app
+          loader=Path('audio-n3.js').read_text(encoding='utf-8');assert './audio/n3/manifest.json' in loader
+          print(f'PASS: {len(urls)} arquivos N3 experienciais; runtime N3.')
+          PY
+      - name: Commitar masters
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/n3 app.js
+          if git diff --cached --quiet; then echo "Sem alteracoes"; exit 0; fi
+          git commit -m "build: publicar regulacao polivagal N3 experiencial"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
