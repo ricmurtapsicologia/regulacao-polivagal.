@@ -10,9 +10,14 @@ OUT=ROOT/'audio/n3';TMP=ROOT/'.tmp_audio_n3';VOICE='pt-BR-AntonioNeural';VERSION
 SOFT={'mas','porém','porem','contudo','entretanto','porque','quando','enquanto','então','entao','assim','agora','portanto','se','como','além','alem','ainda','depois','antes','embora'}
 INSTR=('observe','imagine','pense','respire','inspire','expire','exale','perceba','note','sinta','coloque','apoie','mantenha','deixe','permita','guarde','faça','faca','tente','olhe','escute','volte','pressione','una','mova','gire','segure','nomeie','identifique','pergunte','escolha','repita','solte')
 REFL=('por enquanto','agora','às vezes','as vezes','vale lembrar','repare','considere','uma urgência','uma urgencia','o que importa','qual é','qual e')
+PRON={r'\bTCC-I\b':'T C C I',r'\bTCC\b':'T C C',r'\bRPD\b':'R P D',r'\bPSP\b':'P S P',r'\bATS\b':'A T S',r'\bCBMMG\b':'C B M M G',r'\bOMS\b':'O M S',r'\bACT\b':'A C T'}
 
 def norm(t):return re.sub(r'\s+',' ',t or '').strip()
 def tok(t):return re.findall(r'[\wÀ-ÿ]+',t.lower(),flags=re.UNICODE)
+def speakable(t):
+ out=t
+ for pat,repl in PRON.items():out=re.sub(pat,repl,out,flags=re.I)
+ return norm(out)
 def stable(t,lo,hi,s):
  h=hashlib.sha256((s+'|'+norm(t)).encode()).digest();u=int.from_bytes(h[:4],'big')/0xffffffff;return lo+int(round(u*(hi-lo)))
 def intent(t):
@@ -42,14 +47,13 @@ def units(text):
  return out
 def prosody(text):
  i=intent(text);rate=-9+{'explain':0,'question':1,'instruction':-3,'reflective':-3,'emphasis':1}[i];pitch=-2+{'explain':0,'question':2,'instruction':-1,'reflective':-1,'emphasis':1}[i]
- rate+=stable(text,-1,1,'rate');pitch+=stable(text,-1,1,'pitch')
- ranges={'explain':(700,1100),'question':(1000,1600),'instruction':(1600,3000),'reflective':(1300,2400),'emphasis':(800,1200)}
- lo,hi=ranges[i];return i,f'{max(-14,min(2,rate)):+d}%',f'{max(-5,min(4,pitch)):+d}Hz',stable(text,lo,hi,'pause')
+ rate+=stable(text,-1,1,'rate');pitch+=stable(text,-1,1,'pitch');ranges={'explain':(700,1100),'question':(1000,1600),'instruction':(1600,3000),'reflective':(1300,2400),'emphasis':(800,1200)};lo,hi=ranges[i]
+ return i,f'{max(-14,min(2,rate)):+d}%',f'{max(-5,min(4,pitch)):+d}Hz',stable(text,lo,hi,'pause')
 async def synth(text,rate,pitch,path,sem):
  async with sem:
   for attempt in range(1,4):
    try:
-    c=edge_tts.Communicate(text=text,voice=VOICE,rate=rate,pitch=pitch,volume='+0%');await asyncio.wait_for(c.save(str(path)),timeout=55);return
+    c=edge_tts.Communicate(text=speakable(text),voice=VOICE,rate=rate,pitch=pitch,volume='+0%');await asyncio.wait_for(c.save(str(path)),timeout=55);return
    except Exception:
     if attempt==3:raise
     await asyncio.sleep(.9*attempt)
@@ -70,7 +74,7 @@ async def main():
  data=json.loads(SOURCE.read_text(encoding='utf-8'));practices=data.get('practices',[])
  if len(practices)!=12:raise RuntimeError(f'Esperadas 12 práticas; recebidas {len(practices)}')
  OUT.mkdir(parents=True,exist_ok=True);TMP.mkdir(parents=True,exist_ok=True);sem=asyncio.Semaphore(4)
- manifest={'version':VERSION,'voice':VOICE,'profile':'N3-C experiential — Regulação Polivagal','compatibility_alias':'RC_AUDIO_N2 -> RC_AUDIO_N3','practices':{}};total=0
+ manifest={'version':VERSION,'voice':VOICE,'profile':'N3-C experiential — Regulação Polivagal','compatibility_alias':'RC_AUDIO_N2 -> RC_AUDIO_N3','pronunciation_dictionary':True,'practices':{}};total=0
  for p in practices:
   entry={'title':p['title'],'steps':[]}
   for i,text in enumerate(p['steps'],start=1):
@@ -79,6 +83,6 @@ async def main():
  complete=norm(data.get('complete','Prática concluída. Observe a intensidade e sua margem de escolha agora.'));seconds,intents,nturns=await render('complete',complete,sem)
  manifest['complete']={'text':complete,'url':f'./audio/n3/complete.mp3?v={VERSION}','duration_seconds':seconds,'intents':intents,'turns':nturns}
  (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- (OUT/'audio-spec.json').write_text(json.dumps({'version':VERSION,'voice':VOICE,'profile':'N3-C experiential','ambient_audio':False,'pause_policy':'linguistic + experiential by semantic intent','target_dbfs':TARGET,'peak_ceiling_dbfs':-1.2,'format':'MP3 128 kbps, mono, 44.1 kHz','practice_count':12,'step_audio_count':total,'completion_audio_count':1},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (OUT/'audio-spec.json').write_text(json.dumps({'version':VERSION,'voice':VOICE,'profile':'N3-C experiential','pronunciation_dictionary':True,'ambient_audio':False,'pause_policy':'linguistic + experiential by semantic intent','target_dbfs':TARGET,'peak_ceiling_dbfs':-1.2,'format':'MP3 128 kbps, mono, 44.1 kHz','practice_count':12,'step_audio_count':total,'completion_audio_count':1},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  shutil.rmtree(TMP,ignore_errors=True);print(f'Concluído: {total} etapas + conclusão em N3 experiencial.')
 if __name__=='__main__':asyncio.run(main())
